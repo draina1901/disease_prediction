@@ -1,49 +1,50 @@
-# Disease_Prediction
+# Project Overview
 
-Use the provided dataset `training_data.csv` to build a binary classifier (i.e., logistic regression or an SGDClassifier) that predicts the `has_disease` column. Place your work in a notebook named `submission.ipynb` in this directory. Make sure to:
+This project focuses on building a binary classifier to predict the has_disease column using the dataset training_data.csv. The goal is to preprocess the data, train the model, evaluate its performance, and generate predictions for the test data, optimizing for the F1 score.
 
-- Carefully handle the missing data by choosing suitable imputation methods for both categorical and numeric columns. 
-- Check for outliers
-- Standardize numeric features
-- Encode categorical features appropriately before training.
-- Make sure to build imputation models / scaling on the training set only.
+## Files
 
-Your aim is to maximize your f1 scores!  To do this, you might try:
+training_data.csv: Dataset used for training the model.
+test_data.csv: Dataset used for generating predictions.
+submission.ipynb: Jupyter notebook containing the code for data preprocessing, model building, and evaluation.
+answers.csv: Output file containing the predicted has_disease values for the test data.
+Steps to Follow
 
-- Removing columns that you don't think are necessary
-- Attempting different imputation methods
-- Creating new features (note - we haven't done this yet, but you can inspect the data to create "meta-features" that combine existing features)
-- Try a different classifier (anything in SciKit learn is fair game)
+1. Data Preprocessing
+Handle missing data using appropriate imputation methods for categorical and numerical columns.
+Standardize numerical features to improve model performance.
+Encode categorical features as required for the model.
+Handle outliers in the dataset.
+Ensure all transformations (imputation, scaling) are based only on the training data to prevent data leakage.
+2. Exploratory Data Analysis (EDA)
+Explore and visualize the dataset to understand feature distributions, correlations, and patterns.
+Identify missing values and outliers.
+Remove unnecessary columns if they do not contribute to the model’s performance.
+3. Model Building
+Train a binary classifier using Logistic Regression, SGDClassifier, or any suitable model from SciKit-Learn.
+Experiment with cross-validation to assess model performance and avoid overfitting.
+Aim to maximize the F1 score by tuning hyperparameters and optimizing the model.
+Optionally, create new features (meta-features) that combine existing ones to improve performance.
+4. Predictions and Evaluation
+Apply the trained model to the test_data.csv to generate predictions.
+Impute missing values in the test data using the transformers fitted on the training data.
+Save the predictions to answers.csv, containing a single column has_disease with the predicted values.
+Usage
 
-Be careful not to overfit, as this might lead to a classifier that performs poorly on the test data! When you are done, train your model on the full training data, and then obtain predictions for the `test_data.csv`. Save your predictions to a file called `answers.csv`, which should contain a single column `has_disease` for predictions. For the test data, impute any missing data using the transformers that have been trained on your training data before testing (no data leakage!).
+Open the Notebook: Start by opening submission.ipynb in Jupyter.
+Load the Data: Load training_data.csv for analysis and preprocessing.
+Preprocess the Data: Handle missing values, outliers, standardize, and encode features as necessary.
+Train the Model: Train and evaluate the model using cross-validation.
+Generate Predictions: Use the trained model to predict values for test_data.csv and save them to answers.csv.
+Notes
 
-Note that this assignment is like a Kaggle competition, meaning that you don't know the answers in the `test_data.csv`.  We have the answers, and will determine your F1 scores on the test data.
+All code must be well-documented with comments and markdown to explain the steps and findings.
+Focus on optimizing the F1 score by experimenting with different models, imputation methods, and feature engineering.
+Output
 
-# Rubric
+The final predictions for test_data.csv will be saved in answers.csv, which contains a single column with the predicted has_disease values.
 
-Points will given for each of the following sections present in your notebook.  Each section must be named with a heading.  Code must be documented where necessary, and markdown should be present to explain summary findings at the end of each section. Points will be awarded based on the thoroughness and quality of code in each section.
 
-1. **Exploratory Data Analysis** (2 points) - Did you: 
-    - Explore your data  
-    - Examine distributions  
-    - Look for correlations 
-    - Identify nulls
 
-2. **Preprocessing** (3 points) - As necessary, did you correctly:
-    - Handle outliers 
-    - Encode features
-    - Standardize features
-    - Handle nulls (whether by imputation or some other method)
 
-4. **Modeling & Evaluation** (3 points) - Did you:
-    - Use a cross-validation procedure?
-    - Avoid data leakage?
-    - Correctly evaluate F1-Score?
 
-5. **Test data** (2 points) - Did you:
-    - Train you model appropriately?
-    - Impute data correctly?
-    - Achieve at least 75% f1 on the test data?
-    - Save your answers to an `answers.csv` file?
-
-**Extra Credit** For every 5% over 80% in your `answers.csv` against the actual answers, you will get an additional 1 point on your final grade for the class.
