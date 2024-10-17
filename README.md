@@ -94,7 +94,3 @@ Each model's performance is evaluated using F1 score, and the RandomForestClassi
 - Add more advanced hyperparameter tuning methods.
 - Experiment with other imputation techniques for missing data.
 - Incorporate more classifiers to enhance the robustness of the model comparison.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
